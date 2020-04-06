@@ -127,3 +127,31 @@ item1.style.color = "green";
 item2.style.color = "green";
 document.querySelector('nav').appendChild(item1);
 document.querySelector('nav').prepend(item2);
+
+
+///STRETCH
+
+//Update Styles
+  // change bg color
+  const body = document.getElementsByTagName('body')[0];
+  body.style.backgroundColor = 'lightpink';
+
+  // change color to headings
+
+  const headings = document.querySelectorAll('h1, h4');
+  for (i=0; i < headings.length; i++) {
+    headings[i].style.color = "#b6ffe9";
+  }
+
+
+  // change border styles to dashed
+
+  myMainContent.style.borderBottomStyle = "dashed";
+  myMainContent.style.borderTopStyle = "dashed";
+  myMainContent.style.borderColor = "red";
+
+
+//Update Button
+
+
+//Strech Project
