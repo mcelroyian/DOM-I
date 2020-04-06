@@ -153,5 +153,22 @@ document.querySelector('nav').prepend(item2);
 
 //Update Button
 
+//idea: on click change background color
+let myButton = document.querySelector('button');
+myButton.textContent = "Roll BG Color"
+myButton.addEventListener('click', function() {
+  randColor(body);
+})
+
+//pass in an element will randomize backgorund color.
+randColor = function(el) {
+  const colors = ['green', 'lightblue', 'grey', 'red', 'aqua', 'lightbrown'];
+  el.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+  
+}
+
+
+//idea: on click highlight randomn bit of text
+
 
 //Strech Project
