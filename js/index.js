@@ -41,9 +41,35 @@ const siteContent = {
 let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"])
 
+// Pull data into arrays
+
+const myNavData = Object.values(siteContent.nav);
+const myCtaData = Object.values(siteContent.cta);
+const myMainContentData = Object.values(siteContent['main-content']);
+const myContactData = Object.values(siteContent.contact);
+const myFooterData = Object.values(siteContent.footer);
+
+
 // Create Vars for the main sections
-const myNav = document.querySelector('header nav');
+const myNav = document.querySelectorAll('header nav a');
 const myCta = document.querySelector('.cta');
 const myMainContent = document.querySelector('.main-content');
 const myContact = document.querySelector('.contact');
 const myFooter = document.querySelector('footer');
+
+//Create Nav
+
+for (i = 0; i < myNav.length; i++) {
+  myNav[i].textContent = myNavData[i];
+}
+
+//Create CTA
+
+
+// Crete Main Content
+
+
+//Create Contact
+
+
+//Create footer
