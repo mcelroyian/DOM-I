@@ -41,6 +41,8 @@ const siteContent = {
 let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"])
 
+//// ########## TASK 1 ############
+
 // Pull data into arrays
 
 const myNavData = Object.values(siteContent.nav);
@@ -57,6 +59,11 @@ const myMainContent = document.querySelector('.main-content');
 const myContact = document.querySelector('.contact');
 const myFooter = document.querySelector('footer');
 
+
+
+//// ########## TASK 2 ############
+
+
 //Create Nav
 
 for (i = 0; i < myNav.length; i++) {
@@ -70,16 +77,53 @@ myCta.children[0].children[1].textContent = myCtaData[1]; //button
 myCta.children[1].src = myCtaData[2]; //CTA image
 
 // Create Main Content
-const topContent = myMainContent.children[0];
-let j=0;
-for (let i=0; i < topContent.children.length; i++) {
-  topContent.children[i].children[0].textContent = myMainContentData[j];
-  topContent.children[i].children[1].textContent = myMainContentData[j+1];
-  j += 2;
-}
+
+  //Top Content
+  const topContent = myMainContent.children[0];
+  let j=0;
+  for (let i=0; i < topContent.children.length; i++) {
+   topContent.children[i].children[0].textContent = myMainContentData[j];
+    topContent.children[i].children[1].textContent = myMainContentData[j+1];
+   j += 2;
+  }
+
+  //Middle Img
+  myMainContent.children[1].src = myMainContentData[4];
+
+  //Bottom Content
+  const bottomContent = myMainContent.children[2];
+   j=5;
+  for (let i=0; i < bottomContent.children.length; i++) {
+    bottomContent.children[i].children[0].textContent = myMainContentData[j];
+    bottomContent.children[i].children[1].textContent = myMainContentData[j+1];
+    j += 2;
+  }
 
 
 //Create Contact
+for (i=0; i < myContact.children.length; i++) {
+  myContact.children[i].textContent = myContactData[i];
+}
 
 
 //Create footer
+myFooter.firstChild.textContent = myFooterData[0];
+
+
+//// ########## TASK 3 ############
+
+//Nav text green using style instead of adding class
+for (i = 0; i < myNav.length; i++) {
+  myNav[i].style.color = 'green';
+}
+// Add two items to nav
+let item1 = document.createElement('a');
+let item2 = document.createElement('a');
+item1.textContent = "After";
+item2.textContent = "Before";
+item1.href = "#Nothing";
+item2.href = "Really";
+item1.style.color = "green";
+item2.style.color = "green";
+document.querySelector('nav').appendChild(item1);
+document.querySelector('nav').prepend(item2);
