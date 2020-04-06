@@ -64,11 +64,19 @@ for (i = 0; i < myNav.length; i++) {
 }
 
 //Create CTA
+
 myCta.children[0].children[0].textContent = myCtaData[0]; //h1
 myCta.children[0].children[1].textContent = myCtaData[1]; //button
 myCta.children[1].src = myCtaData[2]; //CTA image
 
-// Crete Main Content
+// Create Main Content
+const topContent = myMainContent.children[0];
+let j=0;
+for (let i=0; i < topContent.children.length; i++) {
+  topContent.children[i].children[0].textContent = myMainContentData[j];
+  topContent.children[i].children[1].textContent = myMainContentData[j+1];
+  j += 2;
+}
 
 
 //Create Contact
