@@ -64,7 +64,9 @@ for (i = 0; i < myNav.length; i++) {
 }
 
 //Create CTA
-
+myCta.children[0].children[0].textContent = myCtaData[0]; //h1
+myCta.children[0].children[1].textContent = myCtaData[1]; //button
+myCta.children[1].src = myCtaData[2]; //CTA image
 
 // Crete Main Content
 
