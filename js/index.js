@@ -40,3 +40,10 @@ const siteContent = {
 // Example: Update the img src for the logo
 let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"])
+
+// Create Vars for the main sections
+const myNav = document.querySelector('header nav');
+const myCta = document.querySelector('.cta');
+const myMainContent = document.querySelector('.main-content');
+const myContact = document.querySelector('.contact');
+const myFooter = document.querySelector('footer');
