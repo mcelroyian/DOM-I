@@ -40,3 +40,140 @@ const siteContent = {
 // Example: Update the img src for the logo
 let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"])
+
+//// ########## TASK 1 ############
+
+// Pull data into arrays
+
+const myNavData = Object.values(siteContent.nav);
+const myCtaData = Object.values(siteContent.cta);
+const myMainContentData = Object.values(siteContent['main-content']);
+const myContactData = Object.values(siteContent.contact);
+const myFooterData = Object.values(siteContent.footer);
+
+
+// Create Vars for the main sections
+const myNav = document.querySelectorAll('header nav a');
+const myCta = document.querySelector('.cta');
+const myMainContent = document.querySelector('.main-content');
+const myContact = document.querySelector('.contact');
+const myFooter = document.querySelector('footer');
+
+
+
+//// ########## TASK 2 ############
+
+
+//Create Nav
+
+for (i = 0; i < myNav.length; i++) {
+  myNav[i].textContent = myNavData[i];
+}
+
+//Create CTA
+
+myCta.children[0].children[0].textContent = myCtaData[0]; //h1
+myCta.children[0].children[1].textContent = myCtaData[1]; //button
+myCta.children[1].src = myCtaData[2]; //CTA image
+
+// Create Main Content
+
+  //Top Content
+  const topContent = myMainContent.children[0];
+  let j=0;
+  for (let i=0; i < topContent.children.length; i++) {
+   topContent.children[i].children[0].textContent = myMainContentData[j];
+    topContent.children[i].children[1].textContent = myMainContentData[j+1];
+   j += 2;
+  }
+
+  //Middle Img
+  myMainContent.children[1].src = myMainContentData[4];
+
+  //Bottom Content
+  const bottomContent = myMainContent.children[2];
+   j=5;
+  for (let i=0; i < bottomContent.children.length; i++) {
+    bottomContent.children[i].children[0].textContent = myMainContentData[j];
+    bottomContent.children[i].children[1].textContent = myMainContentData[j+1];
+    j += 2;
+  }
+
+
+//Create Contact
+for (i=0; i < myContact.children.length; i++) {
+  myContact.children[i].textContent = myContactData[i];
+}
+
+
+//Create footer
+myFooter.firstChild.textContent = myFooterData[0];
+
+
+//// ########## TASK 3 ############
+
+//Nav text green using style instead of adding class
+for (i = 0; i < myNav.length; i++) {
+  myNav[i].style.color = 'green';
+}
+// Add two items to nav
+let item1 = document.createElement('a');
+let item2 = document.createElement('a');
+item1.textContent = "After";
+item2.textContent = "Before";
+item1.href = "#Nothing";
+item2.href = "Really";
+item1.style.color = "green";
+item2.style.color = "green";
+document.querySelector('nav').appendChild(item1);
+document.querySelector('nav').prepend(item2);
+
+
+///STRETCH
+
+//Update Styles
+  // change bg color
+  const body = document.getElementsByTagName('body')[0];
+  body.style.backgroundColor = 'lightpink';
+
+  // change color to headings
+
+  const headings = document.querySelectorAll('h1, h4');
+  for (i=0; i < headings.length; i++) {
+    headings[i].style.color = "#b6ffe9";
+  }
+
+
+  // change border styles to dashed
+
+  myMainContent.style.borderBottomStyle = "dashed";
+  myMainContent.style.borderTopStyle = "dashed";
+  myMainContent.style.borderColor = "red";
+
+
+//Update Button
+
+//idea: on click change background color
+let myButton = document.querySelector('button');
+myButton.textContent = "Roll BG Color"
+myButton.addEventListener('click', function() {
+  randColor(body);
+})
+
+//pass in an element will randomize backgorund color.
+randColor = function(el) {
+ // const colors = ['green', 'lightblue', 'grey', 'red', 'aqua', 'lightbrown']; //old way
+  let r, g, b;
+  r = Math.floor(Math.random()*255);
+  g = Math.floor(Math.random()*255);
+  b = Math.floor(Math.random()*255);
+  //el.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)]; //old way
+  el.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+  
+}
+
+
+//idea: on click highlight randomn bit of text
+
+
+//Strech Project
