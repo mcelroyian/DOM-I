@@ -162,8 +162,13 @@ myButton.addEventListener('click', function() {
 
 //pass in an element will randomize backgorund color.
 randColor = function(el) {
-  const colors = ['green', 'lightblue', 'grey', 'red', 'aqua', 'lightbrown'];
-  el.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+ // const colors = ['green', 'lightblue', 'grey', 'red', 'aqua', 'lightbrown']; //old way
+  let r, g, b;
+  r = Math.floor(Math.random()*255);
+  g = Math.floor(Math.random()*255);
+  b = Math.floor(Math.random()*255);
+  //el.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)]; //old way
+  el.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
   
 }
 
